@@ -26,7 +26,7 @@
         {#each states as state (state.state)}
           <tr>
             <td>
-              <a href={state.state}>{state.fullStateName}</a>
+              <a rel="prefetch" href={state.state}>{state.fullStateName}</a>
             </td>
             <td>{state.cases}</td>
             <td>{state.deaths}</td>
