@@ -18,10 +18,10 @@ function stateTable(stateData) {
   return stateData.map((data) => {
     const { name } = stateNames.find((d) => d.abbreviation === data.state);
     return {
-      cases: data.positive,
-      deaths: data.death,
-      tested: data.totalTestResults,
-      state: data.state,
+      cases: format.number(data.positive),
+      deaths: format.number(data.death),
+      tested: format.number(data.totalTestResults),
+      state: format.number(data.state),
       fullStateName: name,
     };
   });
