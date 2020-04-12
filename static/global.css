@@ -1,0 +1,16 @@
+.section {
+  padding: 1.5rem;
+}
+
+.columns {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.3em;
+  margin: 0;
+}
+
+.section.header {
+  padding: 0.25rem 1.5rem;
+}
