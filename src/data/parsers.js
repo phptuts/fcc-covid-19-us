@@ -4,18 +4,29 @@ import moment from 'moment';
 function usStats(data) {
   const [usStatRaw] = data;
 
+  return parseStats(usStatRaw);
+}
+
+function stateStats(state, data) {
+  const stateRawData = data.find((d) => d.state === state);
+
+  return parseStats(stateRawData);
+}
+
+function parseStats(rawStats) {
   return {
-    cases: format.number(usStatRaw.positive),
-    deaths: format.number(usStatRaw.death),
-    recovered: format.number(usStatRaw.recovered),
-    ventilator: format.number(usStatRaw.onVentilatorCurrently),
-    hospitalized: format.number(usStatRaw.hospitalized),
-    icu: format.number(usStatRaw.inIcuCurrently),
-    tested: format.number(usStatRaw.totalTestResults),
-    updated: moment(usStatRaw.lastModified).format('LLLL'),
+    cases: format.number(rawStats.positive),
+    deaths: format.number(rawStats.death),
+    recovered: format.number(rawStats.recovered),
+    ventilator: format.number(rawStats.onVentilatorCurrently),
+    hospitalized: format.number(rawStats.hospitalized),
+    icu: format.number(rawStats.inIcuCurrently),
+    tested: format.number(rawStats.totalTestResults),
+    updated: moment(rawStats.lastModified).format('LLLL'),
   };
 }
 
 export default {
   usStats,
+  stateStats,
 };
