@@ -6,7 +6,6 @@
     const state = page.params["state"];
 
     if (stateNames.find(s => s.abbreviation === state) === undefined) {
-      console.log("should get error");
       this.error(404, "State Not Found");
       return;
     }
@@ -16,7 +15,6 @@
       const historic = await requests.historicState(state);
       return { state: fullStateName, stats, historic };
     } catch (e) {
-      console.log(e);
       this.error(
         500,
         "There was an error in calling the api, please try again in 5 minutes."
